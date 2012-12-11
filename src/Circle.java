@@ -7,7 +7,7 @@ import java.util.Random;
 
 /**
  * ISSUES: 
-nn * 		reset variables
+ * 	done and done
  * 
  * @author ClintFrank
  *
@@ -297,14 +297,23 @@ public class Circle {
 	    return comPersonalityHistory[curGeneration];
 	}
     
+    /**
+     * returns the current generation int 
+     */
     public int getCurGeneration() {
 	return curGeneration;
     }
 
+    /**
+     * Returns the total number of generations
+     */
     public int getNumGenerations() {
 	return generations;
     }
 
+    /**
+     * returns fileString for printing in the Game Log
+     */
     public String getFileString() {
 	return fileString;
     }
@@ -327,11 +336,12 @@ public class Circle {
 	public double getPayoff(int pos){
 		return (community.get(ind(pos-1)).getPersonality() + community.get(ind(pos+1)).getPersonality())-2 + (community.get(pos).getPersonality()==2? -cost : 0);
 	}
-	
-	public static void main(String[] args){
-		Circle test = new Circle();
-		//int comSize, double cost, int altNum, int avgAltSize, int generations, int searchSize
-		test.gridInitialize(10,.4,8,1,5,1);
-		test.runEpoch();
-	}
+
+//      for testing without the GUI
+//	public static void main(String[] args){
+//		Circle test = new Circle();
+//		//int comSize, double cost, int altNum, int avgAltSize, int generations, int searchSize
+//		test.gridInitialize(10,.4,8,1,5,1);
+//		test.runEpoch();
+//	}
 }
